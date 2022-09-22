@@ -32,7 +32,7 @@ const InputList = ({ input, listSize }) => {
                 {`Product #${i}`}
               </Typography>
               <Typography variant="h6" component="div">
-                {`Description: ${defferedInput}`}
+                {`Description: ${input}`}
               </Typography>
               <Box>
                 <Button size="small">View product</Button>
@@ -43,7 +43,7 @@ const InputList = ({ input, listSize }) => {
       )
     }
     return _list
-  }, [defferedInput, listSize])
+  }, [input, listSize])
 
   return (
     <Grid container spacing={2}>

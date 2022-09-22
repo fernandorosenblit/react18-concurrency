@@ -1,46 +1,72 @@
 import { useState, useTransition } from 'react'
+import cn from 'classnames'
 
-import Box from '@mui/material/Box'
-import FormGroup from '@mui/material/FormGroup'
-
-import { createRandomUsers } from './utils/createRandomUsers'
-
-import SearchBar from './SearchBar'
 import Loading from '../common/Loading'
 
-import UsersList from './UsersList'
+import CharactersList from './CharactersList'
+import _characters from '../DeferredValueExample/utils/characters'
 
-const USERS_LENGTH = 2000
+const filterCharacters = (term) => {
+  if (!term) return _characters
 
-const dummyUsers = createRandomUsers(USERS_LENGTH)
-
-const filterUsers = (term) => {
-  if (!term) return dummyUsers
-
-  return dummyUsers.filter((user) =>
-    user.userId.toLowerCase().includes(term.toLowerCase())
+  return _characters.filter((character) =>
+    character.name.toLowerCase().includes(term.toLowerCase())
   )
 }
 
 const TransitionExample = () => {
   const [searchTerm, setSearchTerm] = useState('')
-  const [users, setUsers] = useState(dummyUsers)
+  const [characters, setCharacters] = useState(_characters)
   const [isPending, startTransition] = useTransition()
+  const [enableTransition, setEnableTransition] = useState(false)
 
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value)
-    startTransition(() => setUsers(filterUsers(e.target.value)))
-    // setUsers(filterUsers(e.target.value))
+    if (enableTransition) {
+      startTransition(() => setCharacters(filterCharacters(e.target.value)))
+    } else {
+      setCharacters(filterCharacters(e.target.value))
+    }
   }
 
   return (
-    <Box p={4}>
-      <FormGroup>
-        <SearchBar onChange={handleInputChange} currentValue={searchTerm} />
-      </FormGroup>
-      {isPending ? <Loading /> : <UsersList users={users} />}
-      {/* <UsersList users={users} /> */}
-    </Box>
+    <div className="flex flex-col p-5 grow">
+      <div className="flex justify-between items-center w-full my-8 mx-auto">
+        <div className="form-check">
+          <input
+            className="form-check-input appearance-none h-4 w-4 border border-[#B535F6] rounded-sm bg-white checked:bg-[#B535F6] focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            type="checkbox"
+            value={enableTransition}
+            onClick={() => setEnableTransition((prev) => !prev)}
+          />
+          <label
+            className={cn('form-check-label inline-bloc', {
+              'text-white': !enableTransition,
+              'text-[#B535F6]': enableTransition,
+            })}
+            htmlFor="flexCheckDefault"
+          >
+            Enable Transition
+          </label>
+        </div>
+        <input
+          className="p-2 w-1/2 rounded-lg"
+          onChange={handleInputChange}
+          value={searchTerm}
+          placeholder="Search by name"
+        />
+        <div />
+      </div>
+      {enableTransition ? (
+        isPending ? (
+          <Loading />
+        ) : (
+          <CharactersList characters={characters} />
+        )
+      ) : (
+        <CharactersList characters={characters} />
+      )}
+    </div>
   )
 }
 

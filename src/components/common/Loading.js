@@ -1,18 +1,7 @@
-import Box from '@mui/material/Box'
-import Grid from '@mui/material/Grid'
-import CircularProgress from '@mui/material/CircularProgress'
-
 const Loading = () => (
-  <Grid item sm={12}>
-    <Box
-      display="flex"
-      justifyContent="center"
-      alignContent="center"
-      alignItems="center"
-    >
-      <CircularProgress />
-    </Box>
-  </Grid>
+  <div className="flex justify-center grow items-center">
+    <h6 className="text-center text-white">Loading...</h6>
+  </div>
 )
 
 export default Loading

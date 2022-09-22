@@ -18,10 +18,11 @@ const DeferredValueExample = () => {
             onChange={handleChange}
             placeholder="Search user by id"
             value={input}
+            className="text-white"
           />
         </FormControl>
       </Box>
-      <InputList input={input} listSize={1000} />
+      <InputList input={input} listSize={2} />
     </Box>
   )
 }
