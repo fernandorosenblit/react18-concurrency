@@ -31,7 +31,7 @@ const TransitionExample = () => {
 
   return (
     <div className="flex flex-col p-5 grow">
-      <div className="flex justify-between items-center w-full my-8 mx-auto">
+      <div className="flex justify-evenly items-center w-full my-8 mx-auto">
         <div className="form-check">
           <input
             className="form-check-input appearance-none h-4 w-4 border border-[#B535F6] rounded-sm bg-white checked:bg-[#B535F6] focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
@@ -55,7 +55,7 @@ const TransitionExample = () => {
           value={searchTerm}
           placeholder="Search by name"
         />
-        <div />
+        <span className="text-white">{`Results: ${characters.length}`}</span>
       </div>
       {enableTransition ? (
         isPending ? (

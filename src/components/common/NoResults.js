@@ -1,12 +1,9 @@
-import Grid from '@mui/material/Grid'
-import Typography from '@mui/material/Typography'
-
 const NoResults = () => (
-  <Grid item xs={12}>
-    <Typography variant="subtitle1" align="center" paragraph>
-      No users found
-    </Typography>
-  </Grid>
+  <div className="flex justify-center grow items-center">
+    <h6 className="text-center text-white">
+      Sorry! We couldn't find any character
+    </h6>
+  </div>
 )
 
 export default NoResults
