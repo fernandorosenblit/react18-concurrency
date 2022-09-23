@@ -1,5 +1,3 @@
-import Grid from '@mui/material/Grid'
-
 import Character from './Character'
 import NoResults from '../common/NoResults'
 
@@ -9,7 +7,7 @@ const CharactersList = ({ characters }) => {
   }
 
   return (
-    <div className="grid grid-cols-5 gap-8">
+    <div className="grid grid-cols-6 gap-8">
       {characters.map((character) => (
         <Character key={`${character.id}`} character={character} />
       ))}
