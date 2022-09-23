@@ -4,7 +4,7 @@ import cn from 'classnames'
 import Loading from '../common/Loading'
 
 import CharactersList from './CharactersList'
-import _characters from '../DeferredValueExample/utils/characters'
+import _characters from '../../utils/characters'
 
 const filterCharacters = (term) => {
   if (!term) return _characters

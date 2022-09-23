@@ -2,7 +2,7 @@ import { useState } from 'react'
 import cn from 'classnames'
 
 import LocationsList from './LocationsList'
-import _locations from './utils/locations'
+import _locations from '../../utils/locations'
 
 const replicateLocations = (n) => {
   const newArray = []
@@ -50,10 +50,10 @@ const DeferredValueExample = () => {
           className="p-2 w-1/2 rounded-lg"
           onChange={handleInputChange}
           value={input}
-          placeholder="Search by name"
+          placeholder="Update locations description"
         />
         <div>
-          <span className="text-white">Locations: {locations.length}</span>
+          <span className="text-white mr-8">Locations: {locations.length}</span>
           <select onChange={handleListSizeChange} className="p-3 rounded-lg">
             <option value="1">1</option>
             <option value="2">2</option>
