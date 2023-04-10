@@ -1,6 +1,6 @@
 import cn from 'classnames'
 
-const UserCard = ({ character }) => {
+const CharacterCard = ({ character }) => {
   const { name, status, image, species } = character
   return (
     <div className=" flex flex-col border-2 border-[#5B1CE6] rounded-lg bg-[#030328] p-4">
@@ -35,4 +35,4 @@ const UserCard = ({ character }) => {
   )
 }
 
-export default UserCard
+export default CharacterCard

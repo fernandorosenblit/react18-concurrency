@@ -10,11 +10,11 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
+        <Route path="transition-example" element={<TransitionExample />} />
         <Route
           path="deferred-value-example"
           element={<DeferredValueExample />}
         />
-        <Route path="transition-example" element={<TransitionExample />} />
       </Route>
     </Routes>
   )
@@ -32,7 +32,7 @@ const Layout = () => {
             to="/deferred-value-example"
             className={({ isActive }) =>
               cn(
-                ' mr-4 px-6 py-3 inline-block hover:text-[#61d718] duration-500',
+                ' mr-4 px-3 md:px-6 py-3 inline-block hover:text-[#61d718] duration-500',
                 { 'text-[#61d718]': isActive, 'text-white': !isActive }
               )
             }
@@ -43,12 +43,12 @@ const Layout = () => {
             to="/transition-example"
             className={({ isActive }) =>
               cn(
-                ' mr-4 px-6 py-3 inline-block hover:text-[#61d718] duration-500',
+                ' mr-4 px-3 md:px-6 py-3 inline-block hover:text-[#1a1a1a] duration-500',
                 { 'text-[#61d718]': isActive, 'text-white': !isActive }
               )
             }
           >
-            Users Transition Example
+            Transition Example
           </NavLink>
         </div>
       </nav>

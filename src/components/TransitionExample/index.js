@@ -14,6 +14,27 @@ const filterCharacters = (term) => {
   )
 }
 
+// const multiply = () => {
+//   const test = [
+//     ..._characters,
+//     ..._characters,
+//     ..._characters,
+//     ..._characters,
+//     ..._characters,
+//     ..._characters,
+//     ..._characters,
+//     ..._characters,
+//     ..._characters,
+//     ..._characters,
+//     ..._characters,
+//     ..._characters,
+//   ]
+
+//   const test2 = test.map((e, i) => ({ ...e, id: i }))
+
+//   console.log(test2)
+// }
+
 const TransitionExample = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [characters, setCharacters] = useState(_characters)

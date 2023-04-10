@@ -1,4 +1,4 @@
-import Character from './Character'
+import CharacterCard from './CharacterCard'
 import NoResults from '../common/NoResults'
 
 const CharactersList = ({ characters }) => {
@@ -7,9 +7,9 @@ const CharactersList = ({ characters }) => {
   }
 
   return (
-    <div className="grid grid-cols-6 gap-8">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
       {characters.map((character) => (
-        <Character key={`${character.id}`} character={character} />
+        <CharacterCard key={`${character.id}`} character={character} />
       ))}
     </div>
   )
